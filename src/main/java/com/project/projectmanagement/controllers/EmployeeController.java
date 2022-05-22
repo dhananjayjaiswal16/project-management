@@ -1,5 +1,7 @@
 package com.project.projectmanagement.controllers;
 
+import java.util.List;
+
 import com.project.projectmanagement.dao.EmployeeRepository;
 import com.project.projectmanagement.entities.Employee;
 
@@ -15,6 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class EmployeeController {
   @Autowired
   EmployeeRepository empRepo;
+
+  @GetMapping
+  public String displayEmployees(Model model) {
+    List<Employee> employees = empRepo.findAll();
+    model.addAttribute("employees", employees);
+    return "list-employees.html";
+  }
 
   @GetMapping("/new")
   public String displayEmployeeForm(Model model) {
