@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head th:replace="layouts :: headTag"></head>
+
+<body>
+  <nav th:replace="layouts :: navbar"></nav>
+  <div>
+    <h3>Current Projects</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Project Name</th>
+          <th>Project Stage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="aProject : ${projects}">
+          <td th:text="${aProject.name}"></td>
+          <td th:text="${aProject.stage}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br> <br>
+  <div>
+    <h3>Current Employees</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Employee First Name</th>
+          <th>Employee Last Name</th>
+          <th>Employee Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="anEmployee : ${employees}">
+          <td th:text="${anEmployee.firstName}"></td>
+          <td th:text="${anEmployee.lastName}"></td>
+          <td th:text="${anEmployee.email}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+
+</html>
